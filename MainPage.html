@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+<br>
+  <div class="wrapper">
+    <div class="title">
+      Registration Form
+    </div>
+    <form action="#" onsubmit="return validation()" class="bg-light">
+    <div class="form">
+       <div class="inputfield">
+          <label>First Name</label>
+          <input type="text" class="input"id="fname"autocomplete="off">
+    <span id="firstname"></span>
+       </div>
+        <div class="inputfield"name="log">
+          <label>Last Name</label>
+          <input type="text"id="lname" class="input"autocomplete="off">
+    <span id="lastname"></span>
+       </div>
+        
+       <div class="inputfield"name="log">
+          <label>Password</label>
+          <input type="password"id="pwd" class="input"autocomplete="off">
+          <span id="password"></span>
+       </div>  
+      <div class="inputfield"name="log">
+          <label>Confirm Password</label>
+          <input type="password"id="cpwd" class="input"autocomplete="off">
+    <span id="cpassword"></span>
+       </div> 
+        <div class="inputfield">
+          <label>Gender</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+       </div> 
+        <div class="inputfield">
+          <label>Email Address</label>
+          <input type="text" id="email"class="input"autocomplete="off">
+          <span id="Email"></span>
+       </div> 
+      <div class="inputfield">
+          <label>Phone Number</label>
+          <input type="text" id="phone"class="input"autocomplete="off">
+          <span id="phn" ></span>
+       </div> 
+      <div class="inputfield">
+          <label>Address</label>
+          <textarea class="textarea"id="address"></textarea>
+           <span id="Address"></span>
+       </div> 
+      <div class="inputfield">
+          <label>Postal Code</label>
+          <input type="text"id="pincode" class="input"autocomplete="off">
+          <span id="Pincode" ></span>
+       </div> 
+      <div class="inputfield terms">
+          <label class="check">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <p>Agreed to terms and conditions</p>
+       </div> 
+      <div class="inputfield">
+        <input type="submit" value="Register" class="btn">
+        <input type="submit" onclick="location.href='SignIn.html';"value="SigIn" class="btn">
+      </div>
+    </div>
+    </form>
+</div>	
+	
+	<script type="text/javascript">
+   function validation()
+   {
+     var fname=document.getElementById('fname').value;
+     var lname=document.getElementById('lname').value;
+     var pwd=document.getElementById('pwd').value;
+     var cpwd=document.getElementById('cpwd').value;
+     var email=document.getElementById('email').value;
+     var phone=document.getElementById('phone').value;
+     var address=document.getElementById('address').value;
+     var pincode=document.getElementById('pincode').value;
+     
+     if(fname == ""){
+       document.getElementById('firstname').innerHTML="   ** please fill the FirstName field";
+       return false;
+     }
+
+     if((fname.length<=2)||(fname.length>20)){
+       document.getElementById('firstname').innerHTML=" **length must be between 5 and 20 ";
+       return false;
+     }
+     
+     if(!isNaN(fname)){
+      document.getElementById('firstname').innerHTML="  ** Only characters are allowed";
+       return false;
+     }
+
+     if(lname == ""){
+       document.getElementById('lastname').innerHTML=" ** please fill the LastName field";
+       return false;
+     }
+
+     if((lname.length<=2)||(lname.length>20)){
+       document.getElementById('lastname').innerHTML=" **length must be between 5 and 20 ";
+       return false;
+     }
+
+     if(!isNaN(lname)){
+      document.getElementById('lastname').innerHTML="** only characters are allowed";
+       return false;
+     }
+     
+  
+
+     if(pwd==""){
+       document.getElementById('password').innerHTML=" ** please fill the password field";
+       return false;
+     }
+
+     if((pwd.length <=5)|| (pwd.length>20)){
+       document.getElementById('password').innerHTML=" ** password length must be between 5 and 20";
+       return false;
+     }
+
+     if(pwd!==cpwd){
+       document.getElementById('cpassword').innerHTML=" **passwords are not matching ";
+       return false;
+     }
+
+     if(cpwd==""){
+       document.getElementById('cpassword').innerHTML=" ** please fill the confirm password field";
+       return false;
+     }
+
+     if((cpwd.length <=5)|| (pwd.length>20)){
+       document.getElementById('cpassword').innerHTML=" ** confirm password length must be between 5 and 20";
+       return false;
+     }
+
+     if(email==""){
+       document.getElementById('Email').innerHTML=" ** please fill the email id field";
+       return false;
+     }
+
+     if(email.indexOf('@')<=0 ){
+       document.getElementById('Email').innerHTML=" ** Invalid position";
+       return false;
+     }
+
+     if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+       document.getElementById('Email').innerHTML=" ** . Invalid position";
+       return false;
+     }
+
+
+
+     if(phone==""){
+       document.getElementById('phn').innerHTML=" ** please fill the phone field";
+       return false;
+     }
+
+     if(isNaN(phone)){
+      document.getElementById('phn').innerHTML=" ** user must write digits only";
+       return false;
+     }
+
+     if(phone.length!=10){
+      document.getElementById('phn').innerHTML=" ** Phone number must be 10 digits only";
+       return false;
+
+     }
+
+     if(address==""){
+       document.getElementById('Address').innerHTML=" ** please fill the address field";
+       return false;
+     }
+
+     if(pincode==""){
+       document.getElementById('Pincode').innerHTML=" ** please fill the pincode field";
+       return false;
+     }
+   }
+    </script>
+</body>
+</html>
